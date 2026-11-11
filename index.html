@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ryan Yeap | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg:#05000d;
+    --bg2:#160024;
+    --card:#130020;
+    --purple:#8b5cf6;
+    --purple2:#b026ff;
+    --text:#ffffff;
+    --muted:#beb2db;
+    --border:rgba(139,92,246,.2);
+}
+
+body{
+    font-family:'Outfit',sans-serif;
+    background:
+    radial-gradient(circle at top right,
+        rgba(176,38,255,.25),
+        transparent 30%),
+    radial-gradient(circle at bottom left,
+        rgba(139,92,246,.15),
+        transparent 35%),
+    #05000d;
+
+    color:var(--text);
+}
+
+/* NAVBAR */
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    background:rgba(5,0,13,.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+}
+
+.container{
+    width:min(1150px,90%);
+    margin:auto;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1.2rem 0;
+}
+
+.logo{
+    font-size:2rem;
+    font-weight:800;
+}
+
+.logo span{
+    color:var(--purple2);
+}
+
+.nav-links{
+    display:flex;
+    gap:2rem;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+}
+
+.nav-links a:hover{
+    color:var(--purple2);
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1fr 400px;
+    gap:6rem;
+    align-items:center;
+}
+
+.hero-small{
+    color:var(--muted);
+    margin-bottom:1rem;
+}
+
+.hero h1{
+    font-size:5rem;
+    line-height:1.05;
+    margin-bottom:1.5rem;
+}
+
+.gradient{
+    background:linear-gradient(
+        90deg,
+        #ffffff,
+        #8b5cf6,
+        #b026ff
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-description{
+    color:var(--muted);
+    max-width:600px;
+    font-size:1.1rem;
+    line-height:1.8;
+}
+
+.buttons{
+    margin-top:2rem;
+    display:flex;
+    gap:1rem;
+}
+
+.btn{
+    padding:1rem 1.8rem;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:linear-gradient(
+        135deg,
+        #8b5cf6,
+        #b026ff
+    );
+    color:white;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+}
+
+.btn-secondary{
+    border:1px solid var(--border);
+    color:white;
+}
+
+/* PROFILE CARD */
+
+.hero-image{
+    background:linear-gradient(
+        145deg,
+        rgba(139,92,246,.25),
+        rgba(176,38,255,.1)
+    );
+
+    border:1px solid rgba(139,92,246,.3);
+    border-radius:30px;
+
+    padding:12px;
+
+    transform:rotate(3deg);
+
+    box-shadow:
+        0 0 20px rgba(139,92,246,.4),
+        0 0 80px rgba(176,38,255,.15);
+
+    transition:.4s;
+}
+
+.hero-image:hover{
+    transform:rotate(0deg) translateY(-8px);
+}
+
+.hero-image img{
+    width:fit-content;
+    height:300px;
+    object-fit:scale-down;
+    object-position:center right;
+
+    display:block;
+    border-radius:22px;
+}
+
+/* GENERAL SECTION */
+
+section{
+    padding:100px 0;
+}
+
+.section-title{
+    text-align:center;
+    font-size:3rem;
+    margin-bottom:3rem;
+}
+
+.section-title span{
+    color:var(--purple2);
+}
+
+.card{
+    background:rgba(255,255,255,.02);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:2rem;
+}
+
+.card:hover{
+    box-shadow:0 0 30px rgba(139,92,246,.2);
+}
+
+/* ABOUT */
+
+.about-text{
+    text-align:center;
+    color:var(--muted);
+    max-width:800px;
+    margin:auto;
+    line-height:1.9;
+}
+
+/* PROJECTS */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:1.5rem;
+}
+
+.project h3{
+    margin-bottom:1rem;
+}
+
+.project p{
+    color:var(--muted);
+}
+
+/* SKILLS */
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:1rem;
+}
+
+.skill{
+    text-align:center;
+}
+
+/* CONTACT */
+
+.contact{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:.5rem;
+    text-align:center;
+}
+
+.contact p{
+    margin:0;
+    color:var(--muted);
+}
+
+.contact a{
+    text-decoration:none;
+    color:var(--purple2);
+    font-size:1.3rem;
+    line-height:1.4;
+}
+
+.contact a:hover{
+    color:var(--purple);
+}
+
+.contact-line{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    gap:.75rem;
+    color:var(--muted);
+    font-size:1.3rem;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--border);
+    text-align:center;
+    padding:2rem;
+    color:var(--muted);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:3.5rem;
+}
+
+.nav-links{
+    gap:1rem;
+}
+
+.hero-image{
+    max-width:350px;
+    margin:auto;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<nav>
+
+<div class="logo">
+Ryan<span>.</span>
+</div>
+
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</div>
+
+</nav>
+</div>
+</header>
+
+<section class="hero">
+
+<div class="container">
+
+<div class="hero-grid">
+
+<div>
+
+<h1>
+IT
+<span class="gradient">
+Student
+</span>
+</h1>
+
+<p class="hero-description">
+Student passionate about crafting modern websites and secure applications
+that feel clean and intentional. Currently focused on web development,
+cybersecurity, and building projects that solve real problems.
+</p>
+
+<div class="buttons">
+
+<a href="#projects" class="btn btn-primary">
+View Projects
+</a>
+
+<a href="#contact" class="btn btn-secondary">
+Contact Me
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+<img src="profile.png.jpg" alt="Ryan Yeap">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<div class="container">
+
+<h2 class="section-title">
+About <span>Me</span>
+</h2>
+
+<div class="card">
+<p class="about-text">
+I'm Ryan Yeap, A 21 year old student currently pursuing his studies in APU Malaysia, 
+I am currently looking for a 3 month internship to complete my diploma chapter in APU to start a fresh new chapter. 
+I am a team player and a person that is always eager and hungry to learn more, therefore being an asset to any company. 
+I have also develop a deep interest into Cybersecurity and FINTECH as of recent events.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="projects">
+
+<div class="container">
+
+<h2 class="section-title">
+My <span>Projects</span>
+</h2>
+
+<div class="projects">
+
+<div class="card project">
+<h3>Capstone Project</h3>
+<p>
+Completed workout and diet plan coding using Java as well as created an online store in the app itself.
+</p>
+</div>
+
+<div class="card project">
+<h3>Cybersecurity Project</h3>
+<p>
+Able to find vulnerabilities and malware using Nessus Tenable on Windows 2008 and Windows 10.
+</p>
+</div>
+
+<div class="card project">
+<h3>Web Application</h3>
+<p>
+Created Law Video and Theory tabs under website for driving school portal for RWDD Module.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<div class="container">
+
+<h2 class="section-title">
+My <span>Skills</span>
+</h2>
+
+<div class="skills">
+
+<div class="card skill">
+<h3>HTML</h3>
+<p>Responsive websites</p>
+</div>
+
+<div class="card skill">
+<h3>Java</h3>
+<p>Essential Object-oriented programming</p>
+</div>
+
+<div class="card skill">
+<h3>Python</h3>
+<p>Essential Python Programming</p>
+</div>
+
+<div class="card skill">
+<h3>Cybersecurity</h3>
+<p>Forensics and vulnerability scanning</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<div class="container">
+
+<h2 class="section-title">
+Get In <span>Touch</span>
+</h2>
+
+<div class="card contact">
+
+<p>Email or WhatsApp Me</p>
+
+<div class="contact-line">
+<a href="mailto:ryanyeap1@gmail.com">ryanyeap1@gmail.com</a>
+<span>/</span>
+<a href="tel:+601133253008">+601133253008</a>
+</div>
+
+<a href="https://wa.me/qr/JWKYTPCRGB4PJ1" target="_blank" rel="noopener noreferrer">My WhatsApp</a>
+
+<a href="https://drive.google.com/file/d/17TMY4KNVrMY8QHZOKLV-jMSvmE7vd-7t/view?usp=sharing" target="_blank" rel="noopener noreferrer">My Resume</a>
+
+<a href="https://drive.google.com/file/d/1Fsnh5Qm1TqaTEkWIW0ozzsbZMNXE2aiO/view?usp=sharing" target="_blank" rel="noopener noreferrer">My Cover Letter</a>
+
+<a href="https://www.linkedin.com/in/ryan-yeap-1846a1293" target="_blank" rel="noopener noreferrer">My LinkedIn</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Ryan Yeap. All Rights Reserved.
+</footer>
+
+</body>
+</html>
